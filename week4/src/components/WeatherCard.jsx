@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import styled from "styled-components";
 import { St } from "./CardStyle";
 
 import { WEATER_TYPE } from "../constants/WeatherType";
@@ -36,7 +36,7 @@ const WeatherCard = () => {
   }, [area]);
 
   return (
-    <>
+    <Wrapper>
       {isLoading ? (
         <span>로딩중...</span>
       ) : (
@@ -52,7 +52,7 @@ const WeatherCard = () => {
                 <St.CardHeader>
                   <h3>{data?.dt_txt.slice(5, 10)}</h3>
                 </St.CardHeader>
-                <img src={imgSrc.imgURL} alt={imgSrc.description} />
+                <St.CardImg src={imgSrc.imgURL} alt={imgSrc.description} />
                 <St.CardDesCription>
                   <span>온도</span>
                   <p>{data.main?.temp}</p>
@@ -79,8 +79,18 @@ const WeatherCard = () => {
           })}
         </>
       )}
-    </>
+    </Wrapper>
   );
 };
 
 export default WeatherCard;
+
+const Wrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.light_yellow};
+  flex-wrap: wrap;
+`;

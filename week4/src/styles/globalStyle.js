@@ -147,7 +147,7 @@ ${reset}
         font-weight: normal;
         font-style: normal;
       }
-#root, body, html, option {
+#root, body, html{
     height: 100vh;
     margin: 0 auto;
     overflow-y: auto;

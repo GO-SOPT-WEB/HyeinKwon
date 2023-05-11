@@ -23,13 +23,7 @@ const St = {
     align-items: center;
 
     width: 100%;
-    height: 100%;
 
     background-color: ${({ theme }) => theme.colors.light_yellow};
-  `,
-  PageSection: styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
   `,
 };
