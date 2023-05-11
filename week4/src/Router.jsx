@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Weather from "./pages/Weather";
-import DetailWeather from "./pages/DetailWeather";
 import WeatherCard from "./components/WeatherCard";
 import DayWeatherCard from "./components/DayWeatherCard";
 
