@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { St } from "./CardStyle";
 
 import { WEATER_TYPE } from "../constants/WeatherType";
+import Skeleton from "./Skeleton";
 
 const WeatherCard = () => {
   const { area } = useParams();
@@ -38,7 +39,9 @@ const WeatherCard = () => {
   return (
     <Wrapper>
       {isLoading ? (
-        <span>로딩중...</span>
+        <>
+          <Skeleton />
+        </>
       ) : (
         <>
           {weatherList.map((data) => {
