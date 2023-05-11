@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Weather from "./pages/Weather";
 import WeatherCard from "./components/WeatherCard";
 import DayWeatherCard from "./components/DayWeatherCard";
+import Error from "./pages/Error";
 
 const Router = () => {
   return (
@@ -12,6 +13,7 @@ const Router = () => {
           <Route path="week/:area" element={<WeatherCard />} />
           <Route path="day/:area" element={<DayWeatherCard />} />
         </Route>
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );
