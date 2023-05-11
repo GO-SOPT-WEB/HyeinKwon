@@ -1,16 +1,19 @@
-import { styled } from "styled-components";
-import axios from "axios";
-import React, { memo, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+
+import { St } from "./CardStyle";
 
 import { WEATER_TYPE } from "../constants/WeatherType";
 
-const DayWeatherCard = (props) => {
+const DayWeatherCard = () => {
   const { area } = useParams();
   const [weather, setWeather] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const weatherInfo = () => {
     try {
+      setIsLoading(true);
       axios
         .get(
           `https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${
@@ -19,51 +22,58 @@ const DayWeatherCard = (props) => {
         )
         .then((response) => {
           setWeather(response.data);
-          console.log(weather.main.temp);
+          setIsLoading(false);
         });
     } catch (err) {
       console.log(err);
     }
   };
+
+  const weatherDescription =
+    weather.weather?.length > 0 ? weather.weather[0].description : "";
+  const imgSrc = WEATER_TYPE.find(
+    (data) => data.description === weatherDescription
+  );
+
   useEffect(() => {
     weatherInfo();
   }, [area]);
 
   return (
     <>
-      <St.CardWrapper>
-        <header>
-          <h3></h3>
-        </header>
+      {isLoading ? (
+        <span>로딩중...</span>
+      ) : (
+        <St.CardWrapper>
+          <St.CardHeader>
+            <h3>{weather.name}</h3>
+          </St.CardHeader>
+          <img src={imgSrc?.imgURL} alt={imgSrc?.description} />
+          <St.CardDesCription>
+            <span>온도</span>
+            <p>{weather.main?.temp}</p>
+          </St.CardDesCription>
 
-        <h3>{name}</h3>
-        <div>
-          <span>온도</span>
-          <p></p>
-        </div>
-        <p></p>
-      </St.CardWrapper>
+          <St.CardDesCription>
+            <span>체감 온도</span>
+            <p>{weather.main?.feels_like}</p>
+          </St.CardDesCription>
+
+          <St.CardDesCription>
+            <span>최저/최고</span>
+            <p>
+              {weather.main?.temp_min}/{weather.main?.temp_max}
+            </p>
+          </St.CardDesCription>
+
+          <St.CardDesCription>
+            <span>구름</span>
+            <p>{weather.clouds?.all}%</p>
+          </St.CardDesCription>
+        </St.CardWrapper>
+      )}
     </>
   );
 };
 
 export default DayWeatherCard;
-
-const St = {
-  CardWrapper: styled.article`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 1rem;
-    padding: 2rem;
-    border-radius: 1rem;
-
-    background-color: ${({ theme }) => theme.colors.coral};
-
-    h2 {
-      color: ${({ theme }) => theme.colors.white};
-    }
-  `,
-};
