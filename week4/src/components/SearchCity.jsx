@@ -1,38 +1,47 @@
-import React, { useCallback, useState, memo } from "react";
+import React, { useState, memo } from "react";
 import { St } from "../styles/SearchCityStyle";
-import WeatherCard from "./WeatherCard";
+
+import { useNavigate } from "react-router-dom";
 
 const SearchCity = () => {
-  const [cityName, setCityName] = useState("");
+  const [area, setArea] = useState("");
+  const [option, setOption] = useState("day");
   const [showWeatherCard, setShowWeatherCard] = useState(false);
 
-  const handleChange = useCallback((e) => {
-    setCityName(e.target.value);
-  }, []);
+  const navigate = useNavigate();
 
-  const handleSearch = useCallback((e) => {
-    e.preventDefault();
-    console.log(cityName);
-    setShowWeatherCard(true);
-    // WeatherCard 컴포넌트에 value 값을 전달하기
-  }, []);
+  const handleSelect = (e) => {
+    setOption(e.target.value);
+  };
+
+  const handleChange = (e) => {
+    setArea(e.target.value);
+  };
+
+  const handleClick = () => {
+    switch (option) {
+      case "day":
+        navigate(`day/${area}`);
+        break;
+      case "week":
+        navigate(`week/${area}`);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <St.FormWapper>
-      <St.WeatherSelect>
-        <St.SelectToday value="today">오늘</St.SelectToday>
-        <St.SelectWeek value="week">주간</St.SelectWeek>
-      </St.WeatherSelect>
+      <select onChange={handleSelect}>
+        <option value="day">오늘</option>
+        <option value="week">주간</option>
+      </select>
       <St.WeatherInput
         placeholder="날씨를 입력해주세요"
         onChange={handleChange}
-        onClick={() => {
-          setShowWeatherCard(false);
-          setCityName("");
-        }}
       />
-      <St.WeatherSearch onClick={handleSearch}>날씨 검색</St.WeatherSearch>
-      {showWeatherCard && <WeatherCard cityName={cityName} />}
+      <St.WeatherSearch onClick={handleClick}>날씨 검색</St.WeatherSearch>
     </St.FormWapper>
   );
 };

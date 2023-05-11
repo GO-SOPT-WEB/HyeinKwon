@@ -3,9 +3,11 @@ import axios from "axios";
 import React, { memo, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const WeatherCard = (props) => {
+import { WEATER_TYPE } from "../constants/WeatherType";
+
+const DayWeatherCard = (props) => {
   const { area } = useParams();
-  const [data, setData] = useState({});
+  const [weather, setWeather] = useState({});
 
   const weatherInfo = () => {
     try {
@@ -16,13 +18,13 @@ const WeatherCard = (props) => {
           }&units=metric`
         )
         .then((response) => {
-          console.log(response);
+          setWeather(response.data);
+          console.log(weather.main.temp);
         });
     } catch (err) {
       console.log(err);
     }
   };
-  console.log(import.meta.env.VITE_APP_WEATHER);
   useEffect(() => {
     weatherInfo();
   }, [area]);
@@ -30,16 +32,22 @@ const WeatherCard = (props) => {
   return (
     <>
       <St.CardWrapper>
-        <h2>안녕!</h2>
+        <header>
+          <h3></h3>
+        </header>
+
         <h3>{name}</h3>
-        {/* <img src={}/> */}
+        <div>
+          <span>온도</span>
+          <p></p>
+        </div>
         <p></p>
       </St.CardWrapper>
     </>
   );
 };
 
-export default WeatherCard;
+export default DayWeatherCard;
 
 const St = {
   CardWrapper: styled.article`
