@@ -1,12 +1,11 @@
 import React, { useState, memo } from "react";
-import { St } from "../styles/SearchCityStyle";
+import { St } from "./SearchCityStyle";
 
 import { useNavigate } from "react-router-dom";
 
 const SearchCity = () => {
   const [area, setArea] = useState("");
   const [option, setOption] = useState("day");
-  const [showWeatherCard, setShowWeatherCard] = useState(false);
 
   const navigate = useNavigate();
 
