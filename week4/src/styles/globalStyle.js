@@ -84,6 +84,7 @@ const reset = css`
   mark,
   audio,
   video {
+    width: 100%;
     margin: 0;
     padding: 0;
     border: 0;
@@ -149,7 +150,7 @@ ${reset}
       }
 #root, body, html{
     height: 100vh;
-    margin: 0 auto;
+    margin: auto;
     overflow-y: auto;
     -ms-overflow-style: none; /* 인터넷 익스플로러 */
     scrollbar-width: none; /* 파이어폭스 */
