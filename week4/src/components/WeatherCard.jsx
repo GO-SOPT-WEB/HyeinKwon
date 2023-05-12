@@ -7,6 +7,7 @@ import { St } from "./CardStyle";
 import { WEATER_TYPE } from "../constants/WeatherType";
 import Skeleton from "./Skeleton";
 
+//주간 부분 카드 나타나기
 const WeatherCard = () => {
   const { area } = useParams();
   const [weather, setWeather] = useState([]);

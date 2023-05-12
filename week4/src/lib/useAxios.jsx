@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { WEATER_TYPE } from "../constants/WeatherType";
 
+//커스텀훅
 export const useAxios = (area) => {
   const [weather, setWeather] = useState({});
   const [isLoading, setIsLoading] = useState(false);

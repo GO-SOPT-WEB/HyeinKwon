@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { St } from "./CardStyle";
 import { useAxios } from "../lib/useAxios";
 
+//'오늘' 부분 카드 렌더링 
 const DayWeatherCard = () => {
   const { area } = useParams();
 
