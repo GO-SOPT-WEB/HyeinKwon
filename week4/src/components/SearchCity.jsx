@@ -9,14 +9,17 @@ const SearchCity = () => {
 
   const navigate = useNavigate();
 
+  //옵션 선택
   const handleSelect = (e) => {
     setOption(e.target.value);
   };
 
+  //지역 검색
   const handleChange = (e) => {
     setArea(e.target.value);
   };
 
+  //오늘, 주간 구분
   const handleClick = () => {
     switch (option) {
       case "day":
@@ -32,12 +35,12 @@ const SearchCity = () => {
 
   return (
     <St.FormWapper>
-      <select onChange={handleSelect}>
+      <St.WeatherSelect onChange={handleSelect}>
         <option value="day">오늘</option>
         <option value="week">주간</option>
-      </select>
+      </St.WeatherSelect>
       <St.WeatherInput
-        placeholder="날씨를 입력해주세요"
+        placeholder="날씨를 입력해주세요(영어로 도시 이름!)"
         onChange={handleChange}
       />
       <St.WeatherSearch onClick={handleClick}>날씨 검색</St.WeatherSearch>

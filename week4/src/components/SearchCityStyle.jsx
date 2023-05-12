@@ -43,19 +43,27 @@ export const St = {
 
     font-size: 1.5rem;
     line-height: 2.5rem;
-    font-family: "TmoneyRoundWindExtraBold";
 
     border-radius: 0.5rem;
     text-align: center;
+
+    @font-face {
+      font-family: "Dovemayo_gothic";
+      src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2")
+        format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
+    font-family: "Dovemayo_gothic";
+
+    cursor: pointer;
   `,
-
-  SelectToday: styled.option``,
-
-  SelectWeek: styled.option``,
 
   WeatherSearch: styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: ${({ theme }) => theme.colors.coral};
   `,
 };
