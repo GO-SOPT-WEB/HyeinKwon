@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
+@font-face {
+  font-family: "GangwonEduSaeeum_OTFMediumA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduSaeeum_OTFMediumA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: #cff09e;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  position: fixed;
+}
+
+aside .hamburger {
+  width: 50px;
+  height: auto;
+  padding-right: 50px;
+}
+
+.menubar {
+  display: none;
+  background-color: white;
+}
+
+.hamburger:hover + .hamburgerwrapper,
+.hamburgerwrapper:hover {
+  cursor: pointer;
+  display: block;
+  height: 100vh;
+  z-index: 10;
+}
+
+.hamburger {
+  position: relative;
+  right: 30px;
+  width: 100px;
+}
+
+.hamburgerwrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: white;
+  z-index: 10;
+
+  padding: 40px;
+}
+
+.hamburgerwrapper > h2,
+h4 {
+  font-family: "Jua", sans-serif;
+}
+
+.hamburgerwrapper > h2 {
+  font-size: 30px;
+}
+
+.hamburgerwrapper > h4 {
+  font-size: 20px;
+}
+
+.hamburgerwrapper > h4:hover {
+  color: #fab1ce;
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-color: #fab1ce;
+  text-decoration-style: wavy;
+}
+
+/* navigation */
+
+.navwrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 250px;
+  height: 300px;
+  margin: 20px;
+
+  border-radius: 3%;
+  background-color: #cbe86b;
+  box-shadow: 3px 3px 3px 3px gray;
+}
+
+.nav_wrapper {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.navbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+
+  margin: 10px;
+  background-color: white;
+
+  padding: 5px;
+  border-radius: 10px;
+
+  list-style: none;
+  margin-right: 50px;
+}
+
+.navbox:hover {
+  cursor: pointer;
+  background-color: #fab1ce;
+  color: white;
+}
+
+.navheader {
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+
+  position: relative;
+  top: 15px;
+}
+
+.navbox {
+  font-family: "Gamja Flower", cursive;
+}
+
+/* main */
+
+main {
+  background-color: #fbffb9;
+  display: flex;
+  padding-top: 120px;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  width: 230px;
+  height: 330px;
+  margin: 10px;
+
+  align-items: center;
+  border-radius: 10%;
+  box-shadow: 3px 3px 3px pink;
+  justify-content: space-around;
+}
+
+h3 {
+  margin-top: 30px;
+}
+
+/* 해시태그 */
+
+.hashtag_wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 20px;
+  margin-right: 30px;
+}
+
+.hashtag {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.hashtag .hashtag_item {
+  list-style-type: none;
+  font-family: "GangwonEduSaeeum_OTFMediumA";
+  font-size: 16px;
+}
+
+.hashtag_item::before {
+  content: "#";
+  margin-left: 5px;
+}
+
+.hashtag_btn {
+  width: 10px;
+
+  background-color: white;
+  border: none;
+  text-shadow: 2px 2px 2px #fab1ce;
+  cursor: pointer;
+}
+
+.card img {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.card .stuff {
+  width: 200px;
+  height: 150px;
+  border-radius: 5%;
+}
+
+.card .minebtn {
+  position: relative;
+  width: 20px;
+  margin-bottom: 15px;
+  left: 90px;
+  z-index: 2;
+}
+.minebtn:hover {
+  cursor: pointer;
+  filter: opacity(0.5) invert(0.5);
+}
+
+@media screen and (max-width: 1024px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 800px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 20px;
+  }
+}
