@@ -1,8 +1,45 @@
 import React, { useState } from "react";
+import { useRecoilState, useResetRecoilState } from "recoil";
 import styled from "styled-components";
+import {
+  checkScoreState,
+  randomListState,
+  scoreState,
+} from "../recoil/Atoms/Atom";
+import { EasyRandomList, HardRandomList, NormalRandomList } from "./ImgData";
 
-export default function ChooseLevel({ level, onClickBtn }) {
-  return <LevelBtn onClick={onClickBtn}>{level}</LevelBtn>;
+export default function ChooseLevel() {
+  const [score, setScore] = useRecoilState(scoreState);
+  const checkScore = useResetRecoilState(checkScoreState);
+  const [randomList, setRandomList] = useRecoilState(randomListState);
+
+  //각 모드 선택 시, 카드 정렬(개수에 맞게) + 난이도 설정
+  const EasyMode = () => {
+    setScore("5");
+    checkScore();
+    setRandomList(EasyRandomList);
+  };
+
+  const NormalMode = () => {
+    setScore("7");
+    checkScore();
+    setRandomList(NormalRandomList);
+  };
+
+  const HardMode = () => {
+    setScore("9");
+    checkScore();
+    setRandomList(HardRandomList);
+  };
+  return (
+    <>
+      <LevelBtn onClick={EasyMode}>Easy</LevelBtn>
+
+      <LevelBtn onClick={NormalMode}>Normal</LevelBtn>
+
+      <LevelBtn onClick={HardMode}>Hard</LevelBtn>
+    </>
+  );
 }
 
 const LevelBtn = styled.button`
