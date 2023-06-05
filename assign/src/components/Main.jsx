@@ -17,14 +17,25 @@ import "../styles/neon.css";
 import useDidMountEffect from "./useDidMountEffect";
 import Modal from "./Modal/Modal";
 
+import { useRecoilState } from "recoil";
+import {
+  checkScoreState,
+  isClickedState,
+  randomListState,
+  scoreState,
+  selectFirstState,
+  selectSecondState,
+  turnsState,
+} from "../recoil/Atoms/Atom";
+
 export default function Main() {
-  const [score, setScore] = useState(5);
-  const [checkScore, setCheckScore] = useState(0);
-  const [randomList, setRandomList] = useState(EasyRandomList);
-  const [turns, setTurns] = useState(0);
-  const [selectFirst, setSelectFirst] = useState(null);
-  const [selectSecond, setSelectSecond] = useState(null);
-  const [isClicked, setIsCliked] = useState(false);
+  const [score, setScore] = useRecoilState(scoreState);
+  const [checkScore, setCheckScore] = useRecoilState(checkScoreState);
+  const [randomList, setRandomList] = useRecoilState(randomListState);
+  const [turns, setTurns] = useRecoilState(turnsState);
+  const [selectFirst, setSelectFirst] = useRecoilState(selectFirstState);
+  const [selectSecond, setSelectSecond] = useRecoilState(selectSecondState);
+  const [isClicked, setIsCliked] = useRecoilState(isClickedState);
 
   //모달띄우기
   const [isOpen, setIsOpen] = useState(false);
@@ -99,18 +110,6 @@ export default function Main() {
     setIsCliked(false);
   };
 
-  //Reset버튼
-  const handleReset = () => {
-    setSelectFirst(null);
-    setSelectSecond(null);
-    setTurns(0);
-    setCheckScore(0);
-    setIsCliked(false);
-    setRandomList((prevRandomList) =>
-      prevRandomList.map((image) => ({ ...image, matched: false }))
-    );
-  };
-
   //모달 닫기
   const modalClose = () => {
     setIsOpen(false);
@@ -123,13 +122,11 @@ export default function Main() {
         <Score ref={scoreRef}>
           {checkScore} : {score}
         </Score>
-        <Reset handleReset={handleReset} />
+        <Reset />
       </Header>
       <Container>
         <LevelContainer>
-          <ChooseLevel onClickBtn={EasyMode} level={"Easy"}></ChooseLevel>
-          <ChooseLevel onClickBtn={NormalMode} level={"Normal"}></ChooseLevel>
-          <ChooseLevel onClickBtn={HardMode} level={"Hard"}></ChooseLevel>
+          <ChooseLevel />
         </LevelContainer>
         {isOpen && <Modal modalClose={modalClose} />}
         <CardWrapper>
@@ -141,7 +138,6 @@ export default function Main() {
               flipped={
                 image === selectFirst || image === selectSecond || image.matched
               }
-              isClicked={isClicked}
             />
           ))}
         </CardWrapper>
