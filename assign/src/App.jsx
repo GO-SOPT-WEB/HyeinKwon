@@ -2,7 +2,7 @@ import styled, { ThemeProvider } from "styled-components";
 import "./App.css";
 import GlobalStyle from "./styles/GlobalStyle";
 import theme from "./styles/theme";
-import Main from "./components/Main";
+import GameZone from "./components/GameZone";
 import { RecoilRoot } from "recoil";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <RecoilRoot>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Main />
+        <GameZone />
       </ThemeProvider>
     </RecoilRoot>
   );
