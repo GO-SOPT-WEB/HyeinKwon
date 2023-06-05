@@ -3,13 +3,16 @@ import "./App.css";
 import GlobalStyle from "./styles/GlobalStyle";
 import theme from "./styles/theme";
 import Main from "./components/Main";
+import { RecoilRoot } from "recoil";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Main />
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Main />
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }
 
