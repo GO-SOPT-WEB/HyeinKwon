@@ -1,7 +1,34 @@
 import React from "react";
+import { useRecoilState, useResetRecoilState } from "recoil";
 import styled from "styled-components";
+import {
+  checkScoreState,
+  isClickedState,
+  randomListState,
+  selectFirstState,
+  selectSecondState,
+  turnsState,
+} from "../recoil/Atoms/Atom";
 
-export default function Reset({ handleReset }) {
+export default function Reset() {
+  const resetCheckScore = useResetRecoilState(checkScoreState);
+  const resetSelectFirst = useResetRecoilState(selectFirstState);
+  const resetSelectSecond = useResetRecoilState(selectSecondState);
+  const resetTurns = useResetRecoilState(turnsState);
+  const resetIsClicked = useResetRecoilState(isClickedState);
+  const [randomList, setRandomList] = useRecoilState(randomListState);
+
+  const handleReset = () => {
+    resetCheckScore();
+    resetSelectFirst();
+    resetSelectSecond();
+    resetTurns();
+    resetIsClicked();
+    setRandomList((prevRandomList) =>
+      prevRandomList.map((image) => ({ ...image, matched: false }))
+    );
+  };
+
   const handleResetBtn = () => {
     handleReset();
   };
