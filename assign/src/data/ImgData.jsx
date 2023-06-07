@@ -48,7 +48,8 @@ const IMGLIST = [
 ];
 
 //이미지 리스트 섞기
-const RandomImgList = [...IMGLIST].sort(() => Math.random() - 0.5);
+export const RandomImgList = [...IMGLIST].sort(() => Math.random() - 0.5);
+//이미지 리스트 섞기
 
 // Easy모드 랜덤으로 섞인 리스트에서 5개씩 자르고, 또 랜덤으로 섞어서 붙인 리스트
 const EasyImgList = RandomImgList.slice(0, 5);

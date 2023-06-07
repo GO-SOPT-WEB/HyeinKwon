@@ -106,3 +106,19 @@ export const CardImg = styled.img`
 
   border-radius: 3%;
 `;
+
+export const Reset = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  width: 80px;
+
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 5px solid ${({ theme }) => theme.colors.lightpink};
+
+  font-size: 20px;
+  color: ${({ theme }) => theme.colors.lightpink};
+  text-shadow: 2px 2px 2px coral;
+`;

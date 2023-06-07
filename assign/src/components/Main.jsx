@@ -5,16 +5,21 @@ import {
   Container,
   LevelContainer,
   CardWrapper,
+  Reset,
 } from "../styles/Style";
 
-import Reset from "./Reset";
 import ChooseLevel from "./ChooseLevel";
 
 import Card from "./Cards";
-import { EasyRandomList, NormalRandomList, HardRandomList } from "./ImgData";
+import {
+  EasyRandomList,
+  NormalRandomList,
+  HardRandomList,
+} from "../data/ImgData";
+
+// import { selectArray } from "../utils/selectArray";
 
 import "../styles/neon.css";
-import useDidMountEffect from "./useDidMountEffect";
 import Modal from "./Modal/Modal";
 
 export default function Main() {
@@ -32,7 +37,9 @@ export default function Main() {
   //score가 달라지면 네온사인 나오는 애니메이션
   const scoreRef = useRef();
 
-  useDidMountEffect(() => {
+  useEffect(() => {
+    if (score === 0) return;
+
     scoreRef.current.classList.add("neon");
     setTimeout(() => scoreRef.current.classList.remove("neon"), 1000);
   }, [checkScore]);
@@ -123,7 +130,7 @@ export default function Main() {
         <Score ref={scoreRef}>
           {checkScore} : {score}
         </Score>
-        <Reset handleReset={handleReset} />
+        <Reset handleReset={handleReset}>Reset</Reset>
       </Header>
       <Container>
         <LevelContainer>
