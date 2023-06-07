@@ -11,11 +11,7 @@ import {
 import ChooseLevel from "./ChooseLevel";
 
 import Card from "./Cards";
-import {
-  EasyRandomList,
-  NormalRandomList,
-  HardRandomList,
-} from "../data/ImgData";
+import { EasyRandomList } from "../data/ImgData";
 
 // import { selectArray } from "../utils/selectArray";
 
@@ -31,6 +27,8 @@ export default function Main() {
   const [selectSecond, setSelectSecond] = useState(null);
   const [isClicked, setIsCliked] = useState(false);
 
+  const level = ["EASY", "NORMAL", "HARD"];
+
   //모달띄우기
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,23 +42,9 @@ export default function Main() {
     setTimeout(() => scoreRef.current.classList.remove("neon"), 1000);
   }, [checkScore]);
 
-  //각 모드 선택 시, 카드 정렬(개수에 맞게) + 난이도 설정
-  const EasyMode = () => {
-    setScore("5");
-    setCheckScore(0);
-    setRandomList(EasyRandomList);
-  };
-
-  const NormalMode = () => {
-    setScore("7");
-    setCheckScore(0);
-    setRandomList(NormalRandomList);
-  };
-
-  const HardMode = () => {
-    setScore("9");
-    setCheckScore(0);
-    setRandomList(HardRandomList);
+  const updateScore = (newScore, array) => {
+    setScore(newScore);
+    setRandomList(array);
   };
 
   const handleChoice = (image) => {
@@ -134,9 +118,9 @@ export default function Main() {
       </Header>
       <Container>
         <LevelContainer>
-          <ChooseLevel onClickBtn={EasyMode} level={"Easy"}></ChooseLevel>
-          <ChooseLevel onClickBtn={NormalMode} level={"Normal"}></ChooseLevel>
-          <ChooseLevel onClickBtn={HardMode} level={"Hard"}></ChooseLevel>
+          {level.map((data, index) => (
+            <ChooseLevel updateScore={updateScore} level={data} key={index} />
+          ))}
         </LevelContainer>
         {isOpen && <Modal modalClose={modalClose} />}
         <CardWrapper>

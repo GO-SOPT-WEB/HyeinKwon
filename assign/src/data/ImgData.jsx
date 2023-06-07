@@ -56,14 +56,3 @@ const EasyImgList = RandomImgList.slice(0, 5);
 export const EasyRandomList = [...EasyImgList, ...EasyImgList]
   .sort(() => Math.random() - 0.5)
   .map((image) => ({ ...image, id: Math.random() }));
-
-//Normal모드
-const NormalImgList = RandomImgList.slice(0, 7);
-export const NormalRandomList = [...NormalImgList, ...NormalImgList]
-  .sort(() => Math.random() - 0.5)
-  .map((image) => ({ ...image, id: Math.random() }));
-
-//Hard 모드 (자르는 것 없음), 똑같이 랜덤으로 돌려서 concat으로 붙이기
-export const HardRandomList = [...IMGLIST, ...IMGLIST]
-  .sort(() => Math.random() - 0.5)
-  .map((image) => ({ ...image, id: Math.random() }));
