@@ -7,6 +7,7 @@ import {
   scoreState,
 } from "../recoil/Atoms/Atom";
 import { EasyRandomList, HardRandomList, NormalRandomList } from "./ImgData";
+import { LevelContainer } from "../styles/Style";
 
 export default function ChooseLevel() {
   const [score, setScore] = useRecoilState(scoreState);
@@ -33,11 +34,13 @@ export default function ChooseLevel() {
   };
   return (
     <>
-      <LevelBtn onClick={EasyMode}>Easy</LevelBtn>
+      <LevelContainer>
+        <LevelBtn onClick={EasyMode}>Easy</LevelBtn>
 
-      <LevelBtn onClick={NormalMode}>Normal</LevelBtn>
+        <LevelBtn onClick={NormalMode}>Normal</LevelBtn>
 
-      <LevelBtn onClick={HardMode}>Hard</LevelBtn>
+        <LevelBtn onClick={HardMode}>Hard</LevelBtn>
+      </LevelContainer>
     </>
   );
 }
