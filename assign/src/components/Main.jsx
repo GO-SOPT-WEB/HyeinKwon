@@ -42,9 +42,11 @@ export default function Main() {
     setTimeout(() => scoreRef.current.classList.remove("neon"), 1000);
   }, [checkScore]);
 
+  //level에 따라 score가 올라가게 하는 함수
   const updateScore = (newScore, array) => {
     setScore(newScore);
     setRandomList(array);
+    setCheckScore(0);
   };
 
   const handleChoice = (image) => {
