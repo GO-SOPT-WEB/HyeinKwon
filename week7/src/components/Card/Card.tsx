@@ -1,7 +1,7 @@
 import React from "react";
 import { CardContainer, CardImg } from "../../styles/Style";
 import preview from "../../assets/preview.gif";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { isClickedState } from "../../recoil/Atoms/Atom";
 
 export interface Image {
@@ -17,7 +17,7 @@ interface OwnProps {
 }
 
 const Card: React.FC<OwnProps> = ({ image, handleChoice, flipped }) => {
-  const [isClicked, setIsCliked] = useRecoilState(isClickedState);
+  const isClicked = useRecoilValue(isClickedState);
 
   const handleClick = () => {
     if (!isClicked) {

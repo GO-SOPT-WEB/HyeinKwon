@@ -27,22 +27,14 @@ export interface selectCard {
   matched: boolean;
 }
 
-export const selectFirstState = atom<selectCard>({
+export const selectFirstState = atom({
   key: "selectFirst",
-  default: {
-    card: "card1",
-    id: 0,
-    matched: false,
-  },
+  default: null,
 });
 
-export const selectSecondState = atom<selectCard>({
+export const selectSecondState = atom({
   key: "selectSecond",
-  default: {
-    card: "card2",
-    id: 1,
-    matched: false,
-  },
+  default: null,
 });
 
 export const isClickedState = atom({

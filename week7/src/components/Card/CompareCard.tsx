@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useRecoilState, useResetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   checkScoreState,
   isClickedState,
@@ -11,22 +11,21 @@ import {
   turnsState,
 } from "../../recoil/Atoms/Atom";
 
-function CompareCard() {
+const CompareCard: React.FC = () => {
   const [checkScore, setCheckScore] = useRecoilState(checkScoreState);
-  const [score, setScore] = useRecoilState(scoreState);
-  const [isClicked, setIsCliked] = useRecoilState(isClickedState);
-  const [turns, setTurns] = useRecoilState(turnsState);
   const [selectFirst, setSelectFirst] = useRecoilState(selectFirstState);
   const [selectSecond, setSelectSecond] = useRecoilState(selectSecondState);
-  const [randomList, setRandomList] = useRecoilState(randomListState);
-  const [isOpen, setIsOpen] = useRecoilState(isOpenState);
 
-  const selectFirstCardReset = useResetRecoilState(selectFirstState);
-  const selectSecondCardReset = useResetRecoilState(selectSecondState);
+  const score = useRecoilValue(scoreState);
+
+  const setRandomList = useSetRecoilState(randomListState);
+  const setIsOpen = useSetRecoilState(isOpenState);
+  const setIsCliked = useSetRecoilState(isClickedState);
+  const setTurns = useSetRecoilState(turnsState);
 
   const resetTurn = () => {
-    selectFirstCardReset();
-    selectSecondCardReset();
+    setSelectFirst(null);
+    setSelectSecond(null);
     setTurns((turns) => turns + 1);
     setIsCliked(false);
   };
@@ -57,9 +56,10 @@ function CompareCard() {
         setTimeout(() => resetTurn(), 1000);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectFirst, selectSecond]);
 
   return null;
-}
+};
 
 export default CompareCard;

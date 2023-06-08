@@ -1,4 +1,4 @@
-import { useRecoilState, useResetRecoilState } from "recoil";
+import { useResetRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import {
   checkScoreState,
@@ -13,9 +13,9 @@ import {
 import { LevelContainer } from "../../styles/Style";
 
 export default function ChooseLevel() {
-  const [score, setScore] = useRecoilState(scoreState);
+  const setScore = useSetRecoilState(scoreState);
+  const setRandomList = useSetRecoilState(randomListState);
   const checkScore = useResetRecoilState(checkScoreState);
-  const [randomList, setRandomList] = useRecoilState(randomListState);
 
   //각 모드 선택 시, 카드 정렬(개수에 맞게) + 난이도 설정
   const EasyMode = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useRecoilState, useResetRecoilState } from "recoil";
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import {
   checkScoreState,
@@ -16,7 +16,8 @@ export default function Reset() {
   const resetSelectSecond = useResetRecoilState(selectSecondState);
   const resetTurns = useResetRecoilState(turnsState);
   const resetIsClicked = useResetRecoilState(isClickedState);
-  const [randomList, setRandomList] = useRecoilState(randomListState);
+
+  const setRandomList = useSetRecoilState(randomListState);
 
   const handleReset = () => {
     resetCheckScore();

@@ -1,4 +1,4 @@
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { Container, CardWrapper } from "../../styles/Style";
 
 import ChooseLevel from "./ChooseLevel";
@@ -17,7 +17,7 @@ import {
 } from "../../recoil/Atoms/Atom";
 
 export default function GameZone() {
-  const [randomList, setRandomList] = useRecoilState(randomListState);
+  const randomList = useRecoilValue(randomListState);
   const [selectFirst, setSelectFirst] = useRecoilState(selectFirstState);
   const [selectSecond, setSelectSecond] = useRecoilState(selectSecondState);
 
