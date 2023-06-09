@@ -1,5 +1,6 @@
 import { createGlobalStyle, css } from "styled-components";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const reset = css`
   html,
   body,
