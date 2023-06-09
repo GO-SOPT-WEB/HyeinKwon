@@ -1,5 +1,4 @@
-import React from "react";
-import { useRecoilState, useResetRecoilState, useSetRecoilState } from "recoil";
+import {  useResetRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import {
   checkScoreState,
