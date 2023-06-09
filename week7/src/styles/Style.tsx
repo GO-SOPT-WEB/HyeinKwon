@@ -17,17 +17,6 @@ export const Header = styled.div`
   font-size: 40px;
 `;
 
-export const Score = styled.div`
-  display: flex;
-  justify-content: space-around;
-
-  width: 50%;
-  margin-top: 30px;
-
-  text-shadow: 2px 2px 2px ${({ theme }) => theme.colors.lightpink};
-  font-size: 50px;
-`;
-
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
