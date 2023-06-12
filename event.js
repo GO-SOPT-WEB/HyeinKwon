@@ -95,11 +95,10 @@ function xbtnhiddenCard(filterdId) {
   hiddenCard(filterdId.className);
 }
 
-const deleteBtn = document.querySelectorAll("button");
-deleteBtn.forEach((data) => {
-  data.addEventListener("click", function (event) {
-    xbtnhiddenCard(event.target);
-  });
+//카드 x 안에 카드 사라지게 하는 기능 추가
+const navClick = document.querySelector(".nav_click");
+navClick.addEventListener("click", function (e) {
+  xbtnhiddenCard(e.target);
 });
 
 //상단 태그에서 엑스버튼 눌렀을 때 체크박스의 체크 사라지기
