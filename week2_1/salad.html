@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Salad</title>
+    <link rel="stylesheet" href="./salad.css" />
+    <link rel="stylesheet" href="animation.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>🥗HAE2NI'S SALAD🥗</h1>
+
+      <img class="hamburger" src="./assets/menubtn.png" alt="햄버거버튼" />
+
+      <aside class="hamburgerwrapper">
+        <h2 id="hamburger">메뉴</h2>
+        <h4><a href="./addCard.html">새 상품 추가</a></h4>
+        <h4>찜 목록</h4>
+      </aside>
+    </header>
+
+    <main>
+      <nav class="navwrapper">
+        <h3 class="navheader">종류</h3>
+        <ul class="nav_wrapper">
+          <li class="navbox" id="navAll">
+            <input type="checkbox" id="all" />❤️전체❤️
+          </li>
+          <li class="navbox"><input type="checkbox" id="salad" />🧡샐러드🧡</li>
+          <li class="navbox">
+            <input type="checkbox" id="sandwich" />💛샌드위치💛
+          </li>
+          <li class="navbox"><input type="checkbox" id="side" />💚사이드💚</li>
+        </ul>
+      </nav>
+      <section>
+        <article class="nav_click">
+          <div class="nav_click_wrapper hidden all">
+            <h3>❤️전체❤️</h3>
+            <button type="button" id="allBtn" class="all">X</button>
+          </div>
+
+          <div class="nav_click_wrapper hidden salad">
+            <h3>🧡샐러드🧡</h3>
+            <button type="button" id="saladBtn" class="salad">X</button>
+          </div>
+
+          <div class="nav_click_wrapper hidden sandwich">
+            <h3>💛샌드위치💛</h3>
+            <button type="button" id="sandwichBtn" class="sandwich">X</button>
+          </div>
+
+          <div class="nav_click_wrapper hidden side">
+            <h3>💚사이드💚</h3>
+            <button type="button" id="sideBtn" class="side">X</button>
+          </div>
+        </article>
+
+        <section class="card_section"></section>
+      </section>
+    </main>
+    <script type="module" src="./event.js"></script>
+  </body>
+</html>

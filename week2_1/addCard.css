@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
+@font-face {
+  font-family: "GangwonEduSaeeum_OTFMediumA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduSaeeum_OTFMediumA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #fbffb9;
+  border-radius: 5%;
+  padding: 30px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d9ef90;
+  border-radius: 10%;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+  border-radius: 10%;
+}
+
+.inputWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+h1 {
+  font-family: "Jua", sans-serif;
+}
+
+h2 {
+  font-family: "GangwonEduSaeeum_OTFMediumA";
+  padding-right: 10px;
+}
+
+input {
+  border: none;
+  border-radius: 5%;
+  height: 20px;
+  margin: 25px;
+}
+
+button {
+  font-family: "Jua", sans-serif;
+
+  width: 100px;
+  height: 30px;
+  margin-bottom: 10px;
+  background-color: #fab1ce;
+  border: none;
+  border-radius: 10%;
+}
+
+.imgWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100px;
+  height: 150px;
+}
+
+.category {
+  padding: 5px;
+  margin: 20px;
+}

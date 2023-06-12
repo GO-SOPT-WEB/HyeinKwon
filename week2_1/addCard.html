@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AddMenu</title>
+    <link rel="stylesheet" href="./addCard.css" />
+  </head>
+  <body>
+    <main>
+      <h1>🥙메뉴를 추가해주세요🥪</h1>
+
+      <section>
+        <article>
+          <div class="inputWrapper">
+            <h2>메뉴 이름</h2>
+            <input id="menuInput" class="menu" type="text" />
+          </div>
+          <div class="inputWrapper">
+            <h2>해시태그(,로 구분)</h2>
+            <input id="tagInput" class="tags" type="text" />
+          </div>
+          <div class="inputWrapper">
+            <h2>메뉴 사진</h2>
+            <input
+              id="imgInput"
+              class="image"
+              type="file"
+              onchange="loadImg(this)"
+            />
+          </div>
+        </article>
+        <div class="imgWrapper">
+          <img alt="preview" id="preview" />
+        </div>
+
+        <select id="selectCategory" class="category">
+          <option value="salad">🧡샐러드🧡</option>
+          <option value="sandwich">💛샌드위치💛</option>
+          <option value="side">💚사이드💚</option>
+        </select>
+
+        <button id="saveBtn">🌯고고!🥗</button>
+      </section>
+    </main>
+    <script src="addCard.js"></script>
+  </body>
+</html>
