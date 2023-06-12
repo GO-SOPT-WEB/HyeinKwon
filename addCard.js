@@ -1,8 +1,8 @@
 const tags = document.querySelector(".tag");
-const imgs = document.querySelector(".image");
+const img = document.querySelector(".image");
 //,로 구분
 
-const obj = {};
+const newOne = {};
 
 //이미지 미리보기
 function loadImg(input) {
@@ -27,7 +27,7 @@ function saveIn() {
 
   const tagsArray = tags.split(",");
 
-  obj = {
+  newOne = {
     menu,
     tagsArray,
   };

@@ -3,19 +3,19 @@ const HIDDEN_CLASS = "hidden";
 
 // 데이터를 카테고리별로 나누기
 function filterCategory(filterdId) {
-  // return filterdId === "all"
-  //   ? MyMenus
-  //   : MyMenus.filter((menu) => menu.category === filterdId);
-  switch (filterdId) {
-    case "all":
-      return MyMenus;
-    case "salad":
-      return MyMenus.filter((menu) => menu.category === "salad");
-    case "sandwich":
-      return MyMenus.filter((menu) => menu.category === "sandwich");
-    case "side":
-      return MyMenus.filter((menu) => menu.category === "side");
-  }
+  return filterdId === "all"
+    ? MyMenus
+    : MyMenus.filter((category) => category === filterdId);
+  // switch (filterdId) {
+  //   case "all":
+  //     return MyMenus;
+  //   case "salad":
+  //     return MyMenus.filter((category) => category === "salad");
+  //   case "sandwich":
+  //     return MyMenus.filter((category) => category === "sandwich");
+  //   case "side":
+  //     return MyMenus.filter((category) => category === "side");
+  // }
 }
 
 // 버튼이 체크되어있는지 확인
@@ -61,6 +61,9 @@ function showCategory(checkbox) {
       side.classList.remove(HIDDEN_CLASS);
       hiddenCard("side");
       break;
+    default:
+      return;
+      break;
   }
 }
 
@@ -82,6 +85,9 @@ function discardCategory(checkbox) {
     case "side":
       side.classList.add(HIDDEN_CLASS);
       hiddenCard("side");
+      break;
+    default:
+      return;
       break;
   }
 }
