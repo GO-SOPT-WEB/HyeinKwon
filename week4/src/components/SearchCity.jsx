@@ -6,44 +6,37 @@ import { useNavigate } from "react-router-dom";
 const SearchCity = () => {
   const [area, setArea] = useState("");
   const [option, setOption] = useState("day");
+  const [timeRange, setTimeRange] = useState("day");
 
   const navigate = useNavigate();
 
-  //옵션 선택
-  const handleSelect = (e) => {
-    setOption(e.target.value);
-  };
-
   //지역 검색
-  const handleChange = (e) => {
-    setArea(e.target.value);
+  const handleSearchArea = (e) => {
+    const { value } = e.currentTarget;
+    setArea(value);
   };
 
   //오늘, 주간 구분
-  const handleClick = () => {
-    switch (option) {
-      case "day":
-        navigate(`day/${area}`);
-        break;
-      case "week":
-        navigate(`week/${area}`);
-        break;
-      default:
-        break;
-    }
+  const handleDayWeek = (e) => {
+    const { value } = e.currentTarget;
+    setTimeRange(value);
+  };
+
+  const handleWeatherPage = () => {
+    navigate(`/${timeRange}/${area}`);
   };
 
   return (
     <St.FormWapper>
-      <St.WeatherSelect onChange={handleSelect}>
+      <St.WeatherSelect onChange={handleDayWeek}>
         <option value="day">오늘</option>
         <option value="week">주간</option>
       </St.WeatherSelect>
       <St.WeatherInput
         placeholder="날씨를 입력해주세요(영어로 도시 이름!)"
-        onChange={handleChange}
+        onChange={handleSearchArea}
       />
-      <St.WeatherSearch onClick={handleClick}>날씨 검색</St.WeatherSearch>
+      <St.WeatherSearch onClick={handleWeatherPage}>날씨 검색</St.WeatherSearch>
     </St.FormWapper>
   );
 };
