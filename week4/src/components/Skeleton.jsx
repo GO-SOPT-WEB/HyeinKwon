@@ -1,26 +1,23 @@
-import React from "react";
 import "./Skeleton.css";
 import styled from "styled-components";
 
 const Skeleton = () => {
   return (
     <Section>
-      {new Array(5).fill("").map((_, index) => (
-        <Article key={index} className="skeleton-item">
-          <header>
-            <div />
-          </header>
+      <Article className="skeleton-item">
+        <header>
+          <div />
+        </header>
+        <div>
+          <div className="skeleton-img" />
+        </div>
+        <div className="skeleton-weather">
           <div>
-            <div className="skeleton-img" />
+            <span className="detail-weather" />
+            <p className="weather" />
           </div>
-          <div className="skeleton-weather">
-            <div>
-              <span className="detail-weather" />
-              <p className="weather" />
-            </div>
-          </div>
-        </Article>
-      ))}
+        </div>
+      </Article>
     </Section>
   );
 };

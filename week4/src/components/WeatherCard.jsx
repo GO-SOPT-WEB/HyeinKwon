@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -41,7 +41,9 @@ const WeatherCard = () => {
     <Wrapper>
       {isLoading ? (
         <>
-          <Skeleton />
+          {weatherList.map((data) => {
+            <Skeleton key={data} />;
+          })}
         </>
       ) : (
         <>

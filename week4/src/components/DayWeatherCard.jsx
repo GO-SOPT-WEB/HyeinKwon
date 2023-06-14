@@ -2,8 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { St } from "./CardStyle";
 import { useAxios } from "../lib/useAxios";
+import Skeleton from "./Skeleton";
 
-//'오늘' 부분 카드 렌더링 
+//'오늘' 부분 카드 렌더링
 const DayWeatherCard = () => {
   const { area } = useParams();
 
@@ -12,7 +13,9 @@ const DayWeatherCard = () => {
   return (
     <>
       {isLoading ? (
-        <span>로딩중...</span>
+        <St.CardWrapper>
+          <Skeleton />
+        </St.CardWrapper>
       ) : (
         <St.CardWrapper>
           <St.CardHeader>
