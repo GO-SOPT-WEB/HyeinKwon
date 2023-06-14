@@ -221,6 +221,12 @@ footer {
   margin-bottom: 10px;
 }
 
+#cal {
+  width: 30px;
+  filter: invert();
+  margin-bottom: 10px;
+}
+
 a {
   text-decoration: none;
 }
