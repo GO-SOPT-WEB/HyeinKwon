@@ -63,7 +63,11 @@ export const St = {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100px;
+    height: 50px;
+    border-radius: 10%;
 
+    color: ${({ theme }) => theme.colors.light_yellow};
     background-color: ${({ theme }) => theme.colors.coral};
   `,
 };
