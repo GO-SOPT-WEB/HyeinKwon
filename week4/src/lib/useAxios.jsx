@@ -25,8 +25,9 @@ export const useAxios = (area) => {
     }
   };
 
-  const weatherDescription =
-    weather.weather?.length > 0 ? weather.weather[0].description : "";
+  const weatherDescription = weather.weather
+    ? weather.weather[0].description
+    : "";
   const imgSrc = WEATER_TYPE.find(
     (data) => data.description === weatherDescription
   );
