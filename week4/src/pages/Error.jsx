@@ -13,7 +13,7 @@ const ErrorWrapper = styled.section`
   justify-content: center;
   align-items: center;
 
-  font-size: 64;
+  font-size: 64px;
   position: absolute;
   width: 100%;
   height: 100%;
