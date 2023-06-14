@@ -1,5 +1,5 @@
 import React, { useState, memo } from "react";
-import { St } from "./SearchCityStyle";
+import { St } from "../styles/SearchCityStyle";
 
 import { useNavigate } from "react-router-dom";
 
