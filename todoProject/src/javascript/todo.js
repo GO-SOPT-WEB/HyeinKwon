@@ -1,4 +1,4 @@
-import TODOs from "./data.js";
+import TODO_LIST from "./data.js";
 
 const DONE_CLASSNAME = "done";
 let clickCategoryId;
@@ -7,7 +7,7 @@ function initToDO() {
   const section = document.querySelector(".whattodo");
 
   //   할 일 카테고리 보이기
-  TODOs.map(({ category, todos }) => {
+  TODO_LIST.map(({ category, TODO_LIST }) => {
     const article = document.createElement("article");
     article.className = "todo_wrapper";
     section.appendChild(article);
@@ -26,7 +26,7 @@ function initToDO() {
     article.appendChild(ul);
 
     // 할 일 리스트 보이기
-    todos.forEach(({ todo, done }) => {
+    TODO_LIST.forEach(({ todo, done }) => {
       const li = document.createElement("li");
       li.innerText = `
       ${todo}

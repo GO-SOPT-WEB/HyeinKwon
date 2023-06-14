@@ -1,10 +1,10 @@
-import TODOs from "./data.js";
+import TODO_LIST from "./data.js";
 
 const todoWrapper = document.getElementById("wrapper");
 const todoContainer = document.getElementById("todoContainer");
 
 function showCategory() {
-  TODOs.map((data) => {
+  TODO_LIST.map((data) => {
     const categoryList = document.createElement("li");
     categoryList.classList.add("category");
     categoryList.draggable = true;
