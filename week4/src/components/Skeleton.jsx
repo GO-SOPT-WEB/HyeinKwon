@@ -1,4 +1,4 @@
-import "./Skeleton.css";
+import "../styles/Skeleton.css";
 import styled from "styled-components";
 
 const Skeleton = () => {
