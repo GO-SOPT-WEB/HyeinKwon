@@ -15,13 +15,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <>
-<ThemeProvider theme={theme}>
-  <GlobalStyle />
-  <Header />
-  <SearchCity />
-</ThemeProvider>
-</> */
-}
