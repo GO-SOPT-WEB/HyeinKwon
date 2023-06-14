@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { St } from "./CardStyle";
 import { useAxios } from "../lib/useAxios";
