@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const SearchCity = () => {
   const [area, setArea] = useState("");
-  const [option, setOption] = useState("day");
   const [timeRange, setTimeRange] = useState("day");
 
   const navigate = useNavigate();
