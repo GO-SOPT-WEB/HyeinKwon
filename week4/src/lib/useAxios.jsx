@@ -1,44 +1,55 @@
+/* eslint-disable no-unreachable */
+/* eslint-disable no-case-declarations */
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { WEATER_TYPE } from "../constants/WeatherType";
 
 //커스텀훅
-export const useAxios = (area) => {
-  const [weather, setWeather] = useState({});
+export const useAxios = (timeRange, area) => {
+  const [weather, setWeather] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  let WEATHER_URL;
+
+  switch (timeRange) {
+    case "day":
+      WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${
+        import.meta.env.VITE_APP_WEATHER
+      }&units=metric`;
+
+      break;
+
+    case "week":
+      WEATHER_URL = `https://api.openweathermap.org/data/2.5/forecast?q=${area}&appid=${
+        import.meta.env.VITE_APP_WEATHER
+      }&units=metric`;
+      break;
+
+    default:
+      break;
+  }
 
   const weatherInfo = () => {
     try {
       setIsLoading(true);
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${
-            import.meta.env.VITE_APP_WEATHER
-          }&units=metric`
-        )
-        .then((response) => {
+      axios.get(WEATHER_URL).then((response) => {
+        if (timeRange === "week") {
+          setWeather(response.data.list);
+        } else {
           setWeather(response.data);
-          setIsLoading(false);
-        });
-    } catch (err) {
-      console.log(err);
+        }
+        setIsLoading(false);
+      });
+    } catch (e) {
+      console.log(e);
     }
   };
 
-  const weatherDescription = weather.weather
-    ? weather.weather[0].description
-    : "";
-  const imgSrc = WEATER_TYPE.find(
-    (data) => data.description === weatherDescription
-  );
-
   useEffect(() => {
     weatherInfo();
-  }, [area]);
+  }, [timeRange, area]);
 
   return {
     weather,
     isLoading,
-    imgSrc,
   };
 };

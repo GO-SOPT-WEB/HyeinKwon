@@ -1,13 +1,21 @@
 import { useParams } from "react-router-dom";
-import { St } from "./CardStyle";
+import { St } from "../styles/CardStyle";
 import { useAxios } from "../lib/useAxios";
 import Skeleton from "./Skeleton";
+import { WEATER_TYPE } from "../constants/WeatherType";
 
 //'오늘' 부분 카드 렌더링
 const DayWeatherCard = () => {
   const { area } = useParams();
 
-  const { weather, isLoading, imgSrc } = useAxios(area);
+  const { weather, isLoading } = useAxios("day", area);
+
+  const weatherDescription = weather.weather
+    ? weather.weather[0].description
+    : "";
+  const imgSrc = WEATER_TYPE.find(
+    (data) => data.description === weatherDescription
+  );
 
   return (
     <>
