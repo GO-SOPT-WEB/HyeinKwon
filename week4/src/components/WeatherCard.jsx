@@ -17,7 +17,6 @@ const WeatherCard = () => {
 
   const weatherList = weatherArr.filter((_, index) => (index - 2) % 8 === 0);
 
-  console.log(typeof weather);
   return (
     <Wrapper>
       {isLoading ? (
@@ -30,6 +29,8 @@ const WeatherCard = () => {
         <>
           {weatherList.map((data) => {
             const eachWeather = data[1];
+            const { dt_txt, temp, feels_like, temp_min, temp_max, clouds } =
+              eachWeather;
             const weatherDescription = eachWeather.weather
               ? eachWeather.weather[0].description
               : "";
@@ -39,30 +40,34 @@ const WeatherCard = () => {
             return (
               <St.CardWrapper key={eachWeather.dt}>
                 <St.CardHeader>
-                  <h3>{eachWeather?.dt_txt.slice(5, 10)}</h3>
+                  <h3>{dt_txt.slice(5, 10)}</h3>
                 </St.CardHeader>
                 <St.CardImg src={imgSrc.imgURL} alt={imgSrc.description} />
-                <St.CardDesCription>
-                  <span>온도</span>
-                  <p>{eachWeather.main?.temp}</p>
-                </St.CardDesCription>
+                {eachWeather && (
+                  <>
+                    <St.CardDesCription>
+                      <span>온도</span>
+                      <p>{temp}</p>
+                    </St.CardDesCription>
 
-                <St.CardDesCription>
-                  <span>체감 온도</span>
-                  <p>{eachWeather.main?.feels_like}</p>
-                </St.CardDesCription>
+                    <St.CardDesCription>
+                      <span>체감 온도</span>
+                      <p>{feels_like}</p>
+                    </St.CardDesCription>
 
-                <St.CardDesCription>
-                  <span>최저/최고</span>
-                  <p>
-                    {eachWeather.main?.temp_min}/{eachWeather.main?.temp_max}
-                  </p>
-                </St.CardDesCription>
+                    <St.CardDesCription>
+                      <span>최저/최고</span>
+                      <p>
+                        {temp_min}/{temp_max}
+                      </p>
+                    </St.CardDesCription>
 
-                <St.CardDesCription>
-                  <span>구름</span>
-                  <p>{eachWeather.clouds?.all}%</p>
-                </St.CardDesCription>
+                    <St.CardDesCription>
+                      <span>구름</span>
+                      <p>{clouds.all}%</p>
+                    </St.CardDesCription>
+                  </>
+                )}
               </St.CardWrapper>
             );
           })}
