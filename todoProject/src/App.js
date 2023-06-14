@@ -1,8 +1,8 @@
-import todoPage from "./pages/todoPage";
+import TodoPage from "./pages/TodoPage";
 import Error404 from "./pages/Error404";
 
 const BASE_URL = "http://localhost:5500";
-const ROUTE_LIST = [{ path: "/", element: todoPage }];
+const ROUTE_LIST = [{ path: "/", element: TodoPage }];
 
 function App($container) {
   this.$container = $container;

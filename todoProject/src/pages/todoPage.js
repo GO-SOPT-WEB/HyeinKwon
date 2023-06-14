@@ -1,7 +1,7 @@
 import "../style/todo.css";
 import "../javascript/todo.js";
 
-function todoPage($container) {
+function TodoPage($container) {
   this.$container = $container;
 
   this.render = () => {
@@ -56,4 +56,4 @@ function todoPage($container) {
   };
   this.render();
 }
-export default todoPage;
+export default TodoPage;

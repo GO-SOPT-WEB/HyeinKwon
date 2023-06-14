@@ -114,16 +114,35 @@ main {
   display: flex;
   justify-content: center;
   width: auto;
-  padding: 5px 10px;
   height: 30px;
   align-items: center;
   border-radius: 10%;
   background-color: #dfe7fd;
   box-shadow: 2px 2px 2px #cddafd;
   font-family: "KCC-Ganpan";
-  margin-bottom: 15px;
   color: #ee9ca7;
   text-shadow: 1px 1px 1px white;
+
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  list-style: none;
+  padding-left: 0;
+  padding-top: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
 }
 
 .list::after {
@@ -131,6 +150,7 @@ main {
 }
 .not_done::before {
   content: "❤️ ";
+  margin-top: 15px;
 }
 
 .done {
@@ -139,6 +159,7 @@ main {
 
 .done::before {
   content: "🤍 ";
+  margin-top: 15px;
 }
 
 .todo_wrapper {

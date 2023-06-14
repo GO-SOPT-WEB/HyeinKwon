@@ -2,8 +2,8 @@ const TODOs = [
   {
     category: "할 일!",
     todos: [
-      { todo: "피아노연습", done: true },
-      { todo: "운동가기", done: true },
+      { todo: "피아노연습", done: false },
+      { todo: "운동가기", done: false },
     ],
   },
   {
@@ -15,7 +15,7 @@ const TODOs = [
   },
   {
     category: "영어 회화",
-    todos: [{ todo: "전화영어", done: true }],
+    todos: [{ todo: "전화영어", done: false }],
   },
   {
     category: "공부",

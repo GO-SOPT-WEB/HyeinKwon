@@ -4,7 +4,6 @@ const todoWrapper = document.getElementById("wrapper");
 const todoContainer = document.getElementById("todoContainer");
 
 function showCategory() {
-  TODOs.filter((data) => data);
   TODOs.map((data) => {
     const categoryList = document.createElement("li");
     categoryList.classList.add("category");
