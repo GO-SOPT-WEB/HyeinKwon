@@ -1,0 +1,12 @@
+.neon {
+  color: #fff4cb;
+  font-size: 15px;
+  line-height: 30x;
+  text-shadow: 0 0 3vw #b5c2ec;
+}
+
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
